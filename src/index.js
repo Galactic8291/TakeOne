@@ -1,1 +1,14 @@
-console.log('hello world')
+import React, { Component } from 'react'
+
+export default class Test extends Component {
+  constructor (props) {
+    super(props)
+  }
+
+  render () {
+    return (
+      <div id='test'></div>
+    )
+  }
+}
+

@@ -11,5 +11,3 @@ test('testing watch', t => {
   t.pass()
 })
 
-test.todo('setup react component testing')
-
