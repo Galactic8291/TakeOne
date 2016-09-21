@@ -8,7 +8,8 @@
     "url": "https://github.com/TheGalacticNinja/TheForkStrikesBack.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava --verbose",
+    "test:watch": "ava --verbose --watch",
     "prod": "NODE_ENV='production webpack'",
     "devel": "webpack-dev-server --hot --progress --colors"
   },
@@ -21,6 +22,26 @@
   ],
   "author": "Robbie McClellan",
   "license": "ISC",
+  "ava": {
+    "files": [
+      "test/**/*.spec.js"
+    ],
+    "require": [
+      "babel-register",
+      "./test/helpers/setup.js"
+    ],
+    "babel": "inherit"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "dependencies": {
     "axios": "^0.14.0",
     "basscss": "^8.0.2",
