@@ -1,14 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { render } from 'react-dom'
 
-export default class Test extends Component {
-  constructor (props) {
-    super(props)
-  }
+import Test from './test'
 
-  render () {
-    return (
-      <div id='test'></div>
-    )
-  }
-}
+render(<Test />, document.getElementById('app'))
 
