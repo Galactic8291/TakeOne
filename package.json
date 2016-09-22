@@ -40,7 +40,10 @@
     ]
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "globals": [
+      "__DEV__"
+    ]
   },
   "dependencies": {
     "axios": "^0.14.0",

@@ -1,14 +1,13 @@
 import { INCREASE, DECREASE } from '../utils/constants'
-import { Map } from 'immutable'
 
-const count = (state = Map(), action) => {
-  switch(action.type) {
+const count = (state = {}, action) => {
+  switch (action.type) {
     case INCREASE:
-      state.set('number', action.amount + 1)
+      return { number: state.number + action.amount }
     case DECREASE:
-      state.set('number', action.amount - 1)
+      return { number: state.number - action.amount }
     default:
-      state
+      return { number: 1 }
   }
 }
 

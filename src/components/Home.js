@@ -9,15 +9,17 @@ const Home = ({ number, increase, decrease }) => {
   return (
     <div>
       Some State Changes:
-      {number}
-      <button onClick={inc}>Decrease +</button>
-      <button onClick={dec}>Increase -</button>
+      { number }
+      <button onClick={inc}>Increase +</button>
+      <button onClick={dec}>Decrease -</button>
     </div>
   )
 }
 
+const mapStateToProps = state => ({ number: state.counter.number })
+
 export default connect(
-  state => ({ number: state.number.count }),
+  mapStateToProps,
   { increase, decrease }
 )(Home)
 

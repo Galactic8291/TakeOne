@@ -10,5 +10,5 @@ const decrease = n => ({
   amount: n
 })
 
-export default { increase, decrease }
+export { increase, decrease }
 

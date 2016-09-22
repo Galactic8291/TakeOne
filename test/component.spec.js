@@ -5,6 +5,6 @@ import Test from '../src/test'
 test('testing <Test />', t => {
   const wrapper = shallow(<Test />)
 
-  t.is(wrapper.contains(<div id='test'></div>), true)
+  t.is(wrapper.contains(<div id='test' />), true)
 })
 
