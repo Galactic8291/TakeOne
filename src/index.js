@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import DevTools from './utils/DevTools'
+import routes from './utils/routes'
 import counter from './reducers/count'
-import { App, Home, Foo, Bar } from './components/module'
 
 const checkDevel = () => {
   if (__DEV__) return <DevTools />
@@ -26,13 +26,8 @@ const AppContainer = () => (
   <Provider store={store}>
     <div>
       <Router history={history}>
-        <Route path='/' component={App}>
-          <IndexRoute component={Home} />
-          <Route path='foo' component={Foo} />
-          <Route path='bar' component={Bar} />
-        </Route>
+        { routes }
       </Router>
-      { checkDevel() }
     </div>
   </Provider>
 )
