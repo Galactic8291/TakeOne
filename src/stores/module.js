@@ -1,2 +1,2 @@
 export configureDevStore from './storeDev'
-export configureProdStore from './store.prod'
+export configureProdStore from './storeProd'

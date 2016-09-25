@@ -5,10 +5,10 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { Router, browserHistory } from 'react-router'
 
 import routes from './utils/routes'
-import { configureDevStore } from './stores/module'
+import { configureDevStore, configureProdStore } from './stores/module'
 
 const devStore = configureDevStore()
-const prodStore = ''
+const prodStore = configureProdStore()
 const store = __DEV__ ? devStore : prodStore
 
 const history = syncHistoryWithStore(browserHistory, store)
