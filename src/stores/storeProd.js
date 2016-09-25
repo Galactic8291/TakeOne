@@ -8,7 +8,7 @@ import { counter } from '../reducers/module'
 export default function configureProdStore (initialState) {
   const middleware = [thunk, sagaMiddleware()]
 
-  const reducer = combineReducer({
+  const reducer = combineReducers({
     counter,
     router: routerReducer
   })
