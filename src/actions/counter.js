@@ -10,5 +10,14 @@ const decrease = n => ({
   amount: n
 })
 
-export { increase, decrease }
+const asyncIncrease = () => {
+  return dispatch => {
+    setTimeout(() => {
+      const action = increase(1)
+      dispatch(action)
+    }, 5000)
+  }
+}
+
+export { increase, decrease, asyncIncrease }
 
