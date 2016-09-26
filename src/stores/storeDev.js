@@ -1,20 +1,14 @@
 import thunk from 'redux-thunk'
 import sagaMiddleWare from 'redux-saga'
 import createLogger from 'redux-logger'
-import { routerReducer } from 'react-router-redux'
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 
 import DevTools from '../utils/DevTools'
-import { counter } from '../reducers/module'
+import reducer from '../reducers/module'
 
 export default function configureDevStore (initialState) {
   const logger = createLogger()
   const middleware = [thunk, sagaMiddleWare(), logger]
-
-  const reducer = combineReducers({
-    counter,
-    routing: routerReducer
-  })
 
   const createMiddleware = compose(
     applyMiddleware(...middleware),
@@ -22,6 +16,13 @@ export default function configureDevStore (initialState) {
   )
 
   const store = createStore(reducer, initialState, createMiddleware)
+
+  if (module.hot) {
+    module.hot.accept('../reducers/module', () => {
+      store.replaceReducer(require('../reducers/module').default)
+    })
+  }
+
   return store
 }
 
