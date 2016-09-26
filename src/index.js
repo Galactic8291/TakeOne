@@ -5,6 +5,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { Router, browserHistory } from 'react-router'
 
 import routes from './utils/routes'
+import rootSaga from './sagas/index'
 import { configureDevStore, configureProdStore } from './stores/module'
 
 const devStore = configureDevStore()
