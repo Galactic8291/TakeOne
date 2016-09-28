@@ -1,7 +1,9 @@
 import React from 'react'
 
+import styles from '../style/test.css'
+
 const Item = () => (
-  <div>Hello Test</div>
+  <div className={styles.test}>Test</div>
 )
 
 export default Item
