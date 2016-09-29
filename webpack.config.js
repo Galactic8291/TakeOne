@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const cssnext = require('postcss-cssnext')
 const precss = require('precss')
-const sugarss = require('sugarss')
+const lost = require('lost')
 
 const checkDevel = sources => {
   if (process.env.NODE_ENV !== 'production') {
@@ -55,8 +55,7 @@ const config = {
   },
   postcss: function () {
     return {
-      plugins: [cssnext, precss],
-      parser: sugarss
+      plugins: [cssnext, lost, precss]
     }
   }
 }
