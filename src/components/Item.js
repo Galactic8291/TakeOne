@@ -1,4 +1,6 @@
 import React from 'react'
+import Radium from 'radium'
+import { Link } from 'react-router'
 import { scaleRotate as Menu } from 'react-burger-menu'
 // import classNames from 'classnames'
 import '../style/style.css'
@@ -28,9 +30,13 @@ const styles = {
   }
 }
 
-const Demo = () => {
+const Demo = ({ children }) => {
+  const RadiumLink = Radium(Link)
+
   const items = [
-    <a key='0' href=''><i className='fa fa-fw fa-star-o' /><span>Favorites</span></a>,
+    <RadiumLink key='0' to='/TestTwo'>
+      <i className='fa fa-fw fa-star-o' /><span>Favorites</span>
+    </RadiumLink>,
     <a key='1' href=''><i className='fa fa-fw fa-bell-o' /><span>Alerts</span></a>,
     <a key='2' href=''><i className='fa fa-fw fa-envelope-o' /><span>Messages</span></a>,
     <a key='3' href=''><i className='fa fa-fw fa-comment-o' /><span>Comments</span></a>,
@@ -46,7 +52,7 @@ const Demo = () => {
         {items}
       </Menu>
       <main id='page-wrap'>
-        Hello
+        {children}
       </main>
     </div>
   )
