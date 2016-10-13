@@ -3,6 +3,31 @@ import { scaleRotate as Menu } from 'react-burger-menu'
 // import classNames from 'classnames'
 import '../style/style.css'
 
+const styles = {
+  bmBurgerButton: {
+    position: 'fixed',
+    width: '36px',
+    height: '30px',
+    left: '36px',
+    top: '36px'
+  },
+  bmBurgerBars: {
+    background: '#373a47'
+  },
+  bmCrossButton: {
+    height: '24px',
+    width: '24px'
+  },
+  bmCross: {
+    background: '#bdc3c7'
+  },
+  bmMenu: {
+    background: '#373a47',
+    padding: '2.5em 1.5em 0',
+    fontSize: '1.15em'
+  }
+}
+
 const Demo = () => {
   const items = [
     <a key='0' href=''><i className='fa fa-fw fa-star-o' /><span>Favorites</span></a>,
@@ -16,8 +41,8 @@ const Demo = () => {
   console.log(items)
 
   return (
-    <div id='outerContainer'>
-      <Menu id='scaleRotate' pageWrapId={'page-wrap'} outerContainerId={'outerContainer'}>
+    <div id='outerContainer' style={{ height: '100%' }}>
+      <Menu styles={styles} id='scaleRotate' pageWrapId={'page-wrap'} outerContainerId={'outerContainer'}>
         {items}
       </Menu>
       <main id='page-wrap'>
