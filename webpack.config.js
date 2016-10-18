@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const cssnext = require('postcss-cssnext')
+const normalize = require('postcss-normalize')
+const fontAwesome = require('postcss-font-awesome')
 const precss = require('precss')
 const lost = require('lost')
 
@@ -55,7 +57,7 @@ const config = {
   },
   postcss: function () {
     return {
-      plugins: [cssnext, lost, precss]
+      plugins: [cssnext, normalize, fontAwesome, lost, precss]
     }
   }
 }
