@@ -1,8 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
-const autoprefixer = require('autoprefixer')
 const cssnext = require('postcss-cssnext')
-const sugarss = require('sugarss')
+const normalize = require('postcss-normalize')
+const fontAwesome = require('postcss-font-awesome')
+const precss = require('precss')
+const lost = require('lost')
 
 const checkDevel = sources => {
   if (process.env.NODE_ENV !== 'production') {
@@ -44,7 +46,7 @@ const config = {
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader!postcss-loader'
+      loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
     }, {
       test: /\.(png|jpg|jpeg|gif|svg)$/,
       loader: 'url-loader?prefix=img/&limit=53248'
@@ -53,10 +55,12 @@ const config = {
       loader: 'url-loader?prefix=font/&limit=53248'
     }]
   },
-  postcss: {
-    plugins: [autoprefixer, cssnext],
-    syntax: sugarss
+  postcss: function () {
+    return {
+      plugins: [cssnext, normalize, fontAwesome, lost, precss]
+    }
   }
 }
 
 module.exports = config
+

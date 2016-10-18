@@ -1,3 +1,4 @@
-export App from './App'
-export Home from './Home'
+export NavBar from './nav/Nav'
+export Test from './Test'
+export TestTwo from './TestTwo'
 
